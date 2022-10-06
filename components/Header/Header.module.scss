@@ -1,0 +1,253 @@
+@import "../../scss/config";
+.header {
+  height: 3rem;
+  width: 100vw;
+  background: $mainColor;
+  display: flex;
+  align-items: center;
+  padding-left: 3rem;
+  justify-content: space-between;
+  box-shadow: 0 1px 8px 2px rgb(88, 88, 88);
+  .logoSection{
+    margin-left: 1.8rem;
+  }
+  .btnBar {
+    display: none;
+    border: 2px solid #fff;
+    background: transparent;
+    color: #fff;
+    font-size: 1.3rem;
+    border-radius: 0.3rem;
+    padding: 0.2rem 0.5rem;
+    cursor: pointer;
+    margin-right: 1rem;
+  }
+  .navCenter {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 5rem 0 0 5rem;
+    height: 100%;
+    width: 50%;
+    background: #fff;
+    .form {
+      position: absolute;
+      left: -62%;
+      top: 0.5rem;
+      width: 65%;
+      .iconSearch {
+        position: absolute;
+        top: 0.5rem;
+        left: 0.5rem;
+        color: $mainColor;
+      }
+      .input {
+        width: 100%;
+        border: none;
+        padding: 0.5rem 0.5rem 0.5rem 2rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 0 10px 1px rgb(122, 122, 122);
+      }
+      .searchBox {
+        position: absolute;
+        top: 3rem;
+        left: 0rem;
+        background-color: #fff;
+        width: 100%;
+        z-index: 3;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 3px 1px #ccc;
+        padding: 0.5rem;
+        h3 {
+          font-size: 0.9rem;
+          margin-bottom: 0.7rem;
+          border-bottom: 1px solid $mainColor;
+          border-radius: 0.5rem;
+          background: #eff9ff;
+          padding: 0.4rem;
+        }
+      }
+    }
+    .navBar {
+      display: flex;
+      justify-content: space-evenly;
+      width: 100%;
+      align-items: center;
+      margin-right: 2rem;
+      .btnNav {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+        font-size: 0.9rem;
+        color: #333 ;
+        transition: $mainTransition;
+        font-weight: bold;
+        width: 8rem;
+        height: 2.8rem;
+        padding: 0 0.5rem;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        &__icon {
+          font-size: 1.5rem;
+        }
+        .icon {
+          font-size: 1.1rem;
+          margin-right: 0.5rem;
+          margin-left: 0.4rem;
+        }
+        .icon2 {
+          font-size: 1.1rem;
+          margin-right: 1rem;
+          margin-left: 1rem;
+        }
+        &:hover {
+          background: #eee;
+          color: $mainColor;
+          border-radius: 1rem;
+        }
+      }
+      .itemNav {
+        position: relative;
+        text-decoration: none;
+        .avatar {
+          width: 2.5rem;
+          height: 2.5rem;
+          border-radius: 50%;
+          object-fit: cover;
+          border: 1px solid #eee;
+          margin-right: 0.5rem;
+          cursor: pointer;
+        }
+        .userName {
+          display: none;
+          font-size: 0.9rem;
+        }
+        .accountDetails {
+          position: absolute;
+          top: 3rem;
+          right: -2rem;
+          width: 12rem;
+          z-index: 2;
+          background: #fff;
+          border-radius: 0.5rem;
+          box-shadow: 0 0 5px 1px #bbb;
+          transition: $mainTransition;
+          animation: show 0.3s 1 ease-in-out;
+          .__btn {
+            @extend .btnNav;
+            width: 95%;
+            margin: 0.5rem auto;
+            padding: 0 0.5rem;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem !important;
+          }
+        }
+        .accountBox {
+          @extend .accountDetails;
+          animation: show 0.3s 1 ease-in-out;
+        }
+      }
+    }
+  }
+}
+@keyframes show {
+  from {
+    opacity: 0;
+    transform: translateY(50%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .header {
+    padding-left: 1rem;
+    .navCenter {
+      width: 55%;
+      .form {
+        left: -57%;
+        width: 60%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 768px) {
+  .header {
+    padding-left: 1rem;
+
+    .btnBar {
+      display: block;
+    }
+    .navCenter {
+      position: fixed;
+      top: 3rem;
+      right: 0;
+      z-index: 15;
+      width: 20rem;
+      height: 90vh;
+      flex-direction: column;
+      padding: 3rem;
+      transform: translateX(100%);
+      visibility: hidden;
+      opacity: 0;
+      transition: $mainTransition;
+      box-shadow: 0 0 8px 2px #bbb;
+      &.show {
+        transform: translateX(0%);
+        visibility: visible;
+        opacity: 1;
+      }
+      .form {
+        position: relative;
+        left: 0;
+        top: 0;
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+      .navBar {
+        flex-direction: column;
+        justify-content: center;
+        .btnNav {
+          width: 100%;
+          font-size: 1.2rem;
+          margin: 0.5rem 0;
+          padding: 0.5rem 1rem;
+          border-bottom: 1px solid #eee;
+        }
+        .itemNav {
+          width: 100%;
+          .userName {
+            display: block;
+            width: 100%;
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+          }
+          .accountDetails {
+            width: 100%;
+            top: 4rem;
+            left: 0;
+            right: unset;
+            .__btn {
+              width: 80%;
+              margin: 1rem auto;
+            }
+          }
+          .accountBox {
+            width: 100%;
+            left: 0rem;
+            button {
+              width: 80%;
+              margin: 0.3rem auto !important;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../../scss/config";
+.logo {
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  background-color: $mainColor;
+  // width: 4rem;
+  // height: 3rem;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 10px;
+  border: 1px solid #e62e2e;
+  overflow: hidden;
+  margin: 0 auto;
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

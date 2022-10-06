@@ -1,0 +1,19 @@
+@import "../../../scss/config";
+.brand {
+  border: 1px solid #eee;
+  margin: 0 1rem;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  width: 8rem;
+  height: 8rem;
+  margin: auto auto;
+  transition: $mainTransition;
+  &:hover {
+    border: 1px solid $mainColor;
+  }
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}

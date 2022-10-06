@@ -1,0 +1,217 @@
+@import "../../scss/config";
+.account {
+  width: 90%;
+  margin: 1rem auto;
+  .profile {
+    background: #fff;
+    border-radius: 1rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    .left {
+      width: 40%;
+      &_info {
+        text-align: center;
+        padding: 0 0 1rem 0;
+        .img {
+          position: relative;
+          width: 9rem;
+          height: 9rem;
+          margin: 0 auto 1rem auto;
+          overflow: hidden;
+          &:hover {
+            .change_avatar {
+              display: block;
+            }
+          }
+          img {
+            width: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid $darkBlue;
+            box-shadow: 0 0 2px 1px $darkBlue;
+          }
+          .change_avatar {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: rgba(255, 255, 255, 0.767);
+            width: 9rem;
+            height: 3rem;
+            border: none;
+            cursor: pointer;
+            display: none;
+            animation: show 0.3s 1 ease-out;
+            .icon {
+              font-size: 2rem;
+              color: #bbb;
+            }
+            @keyframes show {
+              from {
+                opacity: 0;
+                transform: scale(0.4);
+              }
+              to {
+                opacity: 1;
+                transform: scale(1);
+              }
+            }
+          }
+        }
+        .info {
+          padding-bottom: 1rem;
+          border-bottom: 1px solid $mainColor;
+          div {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            span {
+              color: rgb(10, 109, 10);
+              cursor: pointer;
+              margin-left: 0.5rem;
+              font-size: 1.5rem;
+            }
+            .input {
+              text-transform: capitalize;
+              color: $mainColor;
+              padding-bottom: 0.5rem;
+              vertical-align: middle;
+              font-size: 1.2rem;
+              font-weight: bold;
+              text-align: center;
+              width: auto;
+              &.edit {
+                border: 1px solid $darkBlue;
+                border-radius: 0.5rem;
+              }
+              &.normal {
+                border: none;
+              }
+            }
+          }
+          h4 {
+            color: $darkBlue;
+            font-size: 0.9rem;
+          }
+        }
+      }
+      &_control {
+        background: #f5f5dc;
+        border-radius: 0.3rem;
+        box-shadow: 0 0 3px 1px #eee;
+        padding: 0.4rem 1rem;
+        ul {
+          list-style-type: none;
+          li {
+            display: block;
+            padding: 0.3rem 1rem;
+            cursor: pointer;
+            border-bottom: 1px solid $darkBlue;
+            margin: 0.5rem 0;
+            transition: $mainTransition;
+            font-weight: 700;
+            &:hover {
+              border-radius: 0.3rem;
+              background: #eee;
+              color: $darkBlue;
+            }
+            .icon {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+    .right {
+      width: 58%;
+      min-height: 100%;
+      background: #f5f5dc;
+      border-radius: 1rem;
+      box-shadow: 0 0 4px 1px #bbb;
+      padding: 1rem;
+      &_header {
+        border-bottom: 1px solid $mainColor;
+        padding-bottom: 0.5rem;
+        h2 {
+          text-align: center;
+          text-transform: uppercase;
+        }
+      }
+      &_content {
+        padding: 1rem;
+        .item {
+          width: 80%;
+          margin: 1.5rem auto;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          .label {
+            display: flex;
+            align-items: center;
+            font-weight: bold;
+            color: $darkBlue;
+            font-size: 1.1rem;
+
+            .icon {
+              color: $mainColor;
+              font-size: 1.5rem;
+              margin-right: 0.5rem;
+            }
+          }
+          .text {
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            button {
+              border: 1px solid $mainColor;
+              background: #fff;
+              color: $mainColor;
+              padding: 0.2rem 0.4rem;
+              font-size: 0.8rem;
+              border-radius: 0.3rem;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+@media (min-width: 500px) and (max-width: 768px) {
+  .account {
+    .profile {
+      flex-direction: column;
+
+      .left {
+        width: 100%;
+        margin-bottom: 3rem;
+      }
+      .right {
+        width: 100%;
+      }
+    }
+  }
+}
+@media only screen and (max-width: 500px) {
+  .account {
+    width: 98%;
+    .profile {
+      padding: 0.5rem;
+      flex-direction: column;
+      .left {
+        width: 100%;
+        margin-bottom: 3rem;
+      }
+      .right {
+        width: 100%;
+        &_content {
+          padding: 0.3rem;
+          .item {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
